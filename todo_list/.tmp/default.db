@@ -1,0 +1,142 @@
+{
+  "data": {
+    "error": [
+      {
+        "status": "new",
+        "location": "qqq",
+        "description": "www",
+        "date": "2015-10-05T08:45:44.674Z",
+        "createdAt": "2015-10-05T08:45:44.676Z",
+        "updatedAt": "2015-10-05T08:45:44.676Z",
+        "id": 1
+      },
+      {
+        "status": "new",
+        "location": "asd",
+        "description": "asd",
+        "date": "2015-11-08T21:36:11.935Z",
+        "createdAt": "2015-11-08T21:36:11.936Z",
+        "updatedAt": "2015-11-08T21:36:11.936Z",
+        "id": 2
+      },
+      {
+        "status": "new",
+        "location": "konyha",
+        "description": "takarítás",
+        "date": "2015-11-08T21:58:29.491Z",
+        "createdAt": "2015-11-08T21:58:29.492Z",
+        "updatedAt": "2015-11-08T21:58:29.492Z",
+        "id": 3
+      },
+      {
+        "status": "new",
+        "location": "tv",
+        "description": "portalanítás",
+        "date": "2015-11-08T22:00:49.067Z",
+        "createdAt": "2015-11-08T22:00:49.068Z",
+        "updatedAt": "2015-11-08T22:00:49.068Z",
+        "id": 4
+      }
+    ],
+    "user": [
+      {
+        "surname": "asd",
+        "forename": "asd",
+        "neptun": "asd",
+        "password": "$2a$10$dJ2SMmJk/RbVTz04UJhF7ukrrOa6WFQ8Q9uDI1dOdSdMZrDnddXIa",
+        "avatar": "",
+        "role": "riporter",
+        "createdAt": "2015-11-08T21:35:55.136Z",
+        "updatedAt": "2015-11-08T21:35:55.136Z",
+        "id": 1
+      }
+    ]
+  },
+  "schema": {
+    "error": {
+      "date": {
+        "type": "datetime"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "new",
+          "assigned",
+          "success",
+          "rejected",
+          "pending"
+        ]
+      },
+      "location": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      },
+      "user": {
+        "type": "integer",
+        "model": "user",
+        "foreignKey": true,
+        "alias": "user"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "user": {
+      "neptun": {
+        "type": "string",
+        "unique": true
+      },
+      "password": {
+        "type": "string"
+      },
+      "surname": {
+        "type": "string"
+      },
+      "forename": {
+        "type": "string"
+      },
+      "avatar": {
+        "type": "string"
+      },
+      "role": {
+        "type": "string",
+        "enum": [
+          "riporter",
+          "operator"
+        ],
+        "defaultsTo": "riporter"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    }
+  },
+  "counters": {
+    "error": {
+      "id": 4
+    },
+    "user": {
+      "id": 1
+    }
+  }
+}
