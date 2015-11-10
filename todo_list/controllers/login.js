@@ -20,7 +20,7 @@ router.post('/signup', passport.authenticate('local-signup', {
     badRequestMessage:  'Hiányzó adatok'
 }));
 router.post('/', passport.authenticate('local', {
-    successRedirect: '/errors/list',
+    successRedirect: '/tasks/list',
     failureRedirect: '/login',
     failureFlash: true,
     badRequestMessage: 'Hiányzó adatok'

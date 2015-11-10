@@ -38,6 +38,7 @@
         "id": 4
       }
     ],
+    "task": [],
     "user": [
       {
         "surname": "asd",
@@ -49,6 +50,15 @@
         "createdAt": "2015-11-08T21:35:55.136Z",
         "updatedAt": "2015-11-08T21:35:55.136Z",
         "id": 1
+      },
+      {
+        "username": "asd",
+        "password": "$2a$10$O.jadlMySo3d3wcZdY83megLR.enzHQT4EMCbREfkmNvM4AGfd72e",
+        "avatar": "",
+        "role": "riporter",
+        "createdAt": "2015-11-09T18:24:49.408Z",
+        "updatedAt": "2015-11-09T18:24:49.408Z",
+        "id": 2
       }
     ]
   },
@@ -92,18 +102,50 @@
         "type": "datetime"
       }
     },
+    "task": {
+      "date": {
+        "type": "datetime"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "3",
+          "2",
+          "1",
+          "0"
+        ]
+      },
+      "location": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      },
+      "user": {
+        "type": "integer",
+        "model": "user",
+        "foreignKey": true,
+        "alias": "user"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
     "user": {
-      "neptun": {
+      "username": {
         "type": "string",
         "unique": true
       },
       "password": {
-        "type": "string"
-      },
-      "surname": {
-        "type": "string"
-      },
-      "forename": {
         "type": "string"
       },
       "avatar": {
@@ -136,7 +178,10 @@
       "id": 4
     },
     "user": {
-      "id": 1
+      "id": 2
+    },
+    "task": {
+      "id": 11
     }
   }
 }

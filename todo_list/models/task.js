@@ -1,5 +1,5 @@
 module.exports = {
-    identity: 'error',
+    identity: 'task',
     connection: 'default',
     attributes: {
         date: {
@@ -9,7 +9,7 @@ module.exports = {
         },
         status: {
             type: 'string',
-            enum: ['new', 'assigned', 'success', 'rejected', 'pending'],
+            enum: ['3', '2', '1','0'],
             required: true,
         },
         location: {

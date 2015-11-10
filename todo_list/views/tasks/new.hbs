@@ -30,6 +30,13 @@
                     <span class="help-block">{{validationErrors.leiras.msg}}</span>
                 {{/if}}
             </div>
+            <label for="leiras" class="col-lg-2 control-label">Fontosság (3: fontos, 2: még ma, 1: ha van időd, 0: kész)</label>
+            <div class="col-lg-10">
+                <textarea class="form-control" rows="3" id="statusz" name="statusz">{{data.statusz}}</textarea>
+                {{#if validationErrors.statusz}}
+                    <span class="help-block">{{validationErrors.statusz.msg}}</span>
+                {{/if}}
+            </div>
         </div>
         <div class="form-group">
             <div class="col-lg-10 col-lg-offset-2">

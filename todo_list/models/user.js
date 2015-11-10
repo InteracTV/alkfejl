@@ -4,20 +4,12 @@ module.exports = {
     identity: 'user',
     connection: 'default',
     attributes: {
-        neptun: {
+        username: {
             type: 'string',
             required: true,
             unique: true,
         },
         password: {
-            type: 'string',
-            required: true,
-        },
-        surname: {
-            type: 'string',
-            required: true,
-        },
-        forename: {
             type: 'string',
             required: true,
         },
@@ -32,8 +24,8 @@ module.exports = {
             defaultsTo: 'riporter'
         },
         
-        errors: {
-            collection: 'error',
+        tasks: {
+            collection: 'task',
             via: 'user'
         },
         validPassword: function (password) {

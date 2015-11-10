@@ -6,10 +6,10 @@ var flash = require('connect-flash');
 
 var Waterline = require('waterline');
 var waterlineConfig = require('./config/waterline');
-var errorCollection = require('./models/error');
+var taskCollection = require('./models/task');
 var userCollection = require('./models/user');
 var indexRouter = require('./controllers/index');
-var errorRouter = require('./controllers/errors');
+var taskRouter = require('./controllers/tasks');
 var loginRouter = require('./controllers/login');
 
 var passport = require('passport');
@@ -25,15 +25,15 @@ passport.deserializeUser(function(obj, done) {
 });
 
 passport.use('local-signup', new LocalStrategy({
-        usernameField: 'neptun',
+        usernameField: 'username',
         passwordField: 'password',
         passReqToCallback: true,
     },   
-    function(req, neptun, password, done) {
-        req.app.models.user.findOne({ neptun: neptun }, function(err, user) {
+    function(req, username, password, done) {
+        req.app.models.user.findOne({ username: username }, function(err, user) {
             if (err) { return done(err); }
             if (user) {
-                return done(null, false, { message: 'Létező neptun.' });
+                return done(null, false, { message: 'Létező felhasználónév.' });
             }
             req.app.models.user.create(req.body)
             .then(function (user) {
@@ -47,12 +47,12 @@ passport.use('local-signup', new LocalStrategy({
 ));
 
 passport.use('local', new LocalStrategy({
-        usernameField: 'neptun',
+        usernameField: 'username',
         passwordField: 'password',
         passReqToCallback: true,
     },
-    function(req, neptun, password, done) {
-        req.app.models.user.findOne({ neptun: neptun }, function(err, user) {
+    function(req, username, password, done) {
+        req.app.models.user.findOne({ username: username }, function(err, user) {
             if (err) { return done(err); }
             if (!user || !user.validPassword(password)) {
                 return done(null, false, { message: 'Helytelen adatok.' });
@@ -86,7 +86,7 @@ function andRestrictTo(role) {
 
 var orm = new Waterline();
 
-orm.loadCollection(Waterline.Collection.extend(errorCollection));
+orm.loadCollection(Waterline.Collection.extend(taskCollection));
 orm.loadCollection(Waterline.Collection.extend(userCollection));
 
 var app = express();
@@ -119,7 +119,7 @@ app.use(setLocalsForLayout());
 //endpoint
 app.use('/', indexRouter);
 //app.use('/errors', indexRouter);
-app.use('/errors', ensureAuthenticated, errorRouter);
+app.use('/tasks', ensureAuthenticated, taskRouter);
 app.use('/login', loginRouter);
 
 app.get('/operator', ensureAuthenticated, andRestrictTo('operator'), function(req, res) {
