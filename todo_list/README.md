@@ -96,4 +96,9 @@ Adatbázis:
 
 #### Felhasználói dokumentáció
 
+Szükségesek:
+
+- modern böngésző
+- Internet kapcsolat
+
 A látogató, ha a család része, akkor jelentkezzen be. Ha ez megtörtént, hozzáférhet a feladatok listájához. A családtag az egyes feladatokat szerkesztheti az űrlapon keresztül, és törölheti is. Új feladatot létrehozni is lehet, itt meg kell adni a leírást, a helyszínt, és a fontosságot.
