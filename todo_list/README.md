@@ -51,4 +51,35 @@ Családtag
 - GET /tasks/id: feladat adatai
 - POST /tasks/id/comment: új megjegyzés
 
+#### Implementáció
+
+##### Fejlesztői környezet bemutatása
+
+Fejlesztői környezet gyanánt a Cloud9 Web IDE-t használtam, egy account segítségével. Node.js workspace-ben fejlesztődött.
+
+Használt API-k:
+- Express
+- Express-session
+- Express-validator
+- bcryptjs
+- body-parser
+- Chai
+- Connect-flash
+- Hbs
+- Mocha
+- Passport
+- Passport-local
+
+Adatbázis:
+- Waterline
+
+##### Könyvtárstruktúrában lévő mappák funkiójának bemutatása
+
+- config: a Waterline konfigurációja
+- controllers: vezérlő egységek
+- models: modell egységek
+- node_modules: használt API-k konfigurációja
+- public: Bootstrap css, bootswatch témák, JQuery fájlok
+- views: a megjelenítésért felelős fájlok (.hbs)
+
 
